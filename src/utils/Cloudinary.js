@@ -19,9 +19,10 @@ import { CLIENT_RENEG_WINDOW } from 'tls';
             resource_type: "auto"
         })
         // file has been uploaded  successfully
-        console.log("File has been uploaded on cloudinary!!",
-            reponse.url);
-            return reponse
+        // console.log("File has been uploaded on cloudinary!!",
+        //     reponse.url);
+            fs.unlinkSync(localFilePath)
+            return reponse;
     } catch (error) {
         fs.unlink(localFilePath)
         // remove the locally saved temporary files as the upload operation got failed
